@@ -1,0 +1,222 @@
+// variables
+$bg-color: #f2f2f2;
+$primary : aqua;
+$mobileWidth : 767px;
+$wideWidth : $mobileWidth+1;
+
+@mixin blue-underline {
+    border-top: 2px ridge aqua;
+    width: 225px;
+    margin: 1rem auto 2rem;
+}
+
+html {
+    scroll-behavior: smooth;
+
+    body {
+        background-color: $bg-color;
+        width: 100%;
+        font-family: 'PT Sans',
+            sans-serif;
+    }
+}
+
+.navbar {
+
+    .container {
+        a {
+            font-size: 20px;
+        }
+    }
+
+    .navbar-brand {
+        color: $primary;
+        border-color: $primary !important;
+        font-family: 'Major Mono Display',
+            monospace;
+    }
+
+    i {
+        font-size: 40px;
+        color: aqua;
+    }
+
+    .nav-link.active,
+    .nav-link:hover {
+        background-color: $primary;
+    }
+
+    @media screen and (max-width : $mobileWidth) {
+        li a {
+            margin-top: 4px;
+        }
+    }
+
+    @media screen and (min-width : $wideWidth) {
+        li a {
+            margin: 0 4px;
+            padding: initial 10px;
+        }
+    }
+
+}
+
+.bg-images1 {
+    background: url("images/jumbotron.jpg") center top no-repeat fixed;
+    background-size: cover;
+    height: 550px;
+    padding: 60px 0 0 0;
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: -40px;
+        bottom: 0;
+    }
+
+    @media screen and (max-width : $mobileWidth) {
+        box-shadow: inset 0 -200px 800px 10px rgba(0, 0, 0, 0.712);
+    }
+
+    @media screen and (min-width : $wideWidth) {
+        box-shadow: inset 0 -200px 800px 20px rgba(0, 0, 0, 0.712);
+    }
+}
+
+header {
+    position: relative;
+    z-index: 1;
+    min-height: 500px;
+
+    h1 {
+        font-weight: lighter;
+        text-transform: uppercase;
+    }
+
+    @media screen and (max-width : $mobileWidth) {
+        .rounded-circle {
+            width: 150px;
+            border: 2px solid aqua;
+        }
+
+        h1 {
+            font-size: 50px;
+            letter-spacing: 10px;
+            margin-top: 0px;
+        }
+
+        h4 {
+            font-size: 25px;
+            font-weight: 400;
+            letter-spacing: 2px;
+        }
+    }
+
+    @media screen and (min-width : $wideWidth) {
+        .rounded-circle {
+            width: 180px;
+            border: 2px solid aqua;
+        }
+
+        h1 {
+            font-size: 65px;
+            letter-spacing: 10px;
+            margin-top: 0px;
+        }
+
+        h4 {
+            font-size: 30px;
+            font-weight: 100;
+            letter-spacing: 5px;
+        }
+    }
+}
+
+.blue {
+    @include blue-underline;
+}
+
+.skill {
+    .container {
+        position: relative;
+        margin-top: -130px;
+        border-radius: 20px;
+        z-index: 2;
+    }
+
+    object {
+        height: 80px;
+    }
+}
+
+.about {
+    margin-top: 50px;
+    padding: 72px 0;
+}
+
+.contact {
+    padding: 72px 5%;
+
+    i {
+        font-size: 24px;
+    }
+
+    .social-media i {
+        font-size: 50px;
+    }
+
+    .form-border {
+        border: 2px solid aqua;
+        border-radius: 40px;
+        padding: 30px;
+    }
+}
+
+.projects {
+    padding: 72px 0 60px;
+
+    p {
+        font-weight: 300;
+        font-size: 20px;
+    }
+
+    .html-5,
+    .css-3 {
+        width: 40px;
+        margin: 0 5px;
+    }
+
+    .b-4 {
+        width: 48px;
+        margin: 0 5px;
+    }
+
+    .card {
+        border-radius: 30px;
+    }
+
+    img {
+        border-radius: 30px 30px 0 0;
+    }
+
+    .fa-plus-circle {
+        color: green;
+    }
+}
+
+.skill,
+.about,
+.projects {
+    h1 {
+        letter-spacing: 3px;
+        font-weight: 100;
+        text-transform: uppercase;
+    }
+}
+
+footer {
+    background-color: aqua;
+}
