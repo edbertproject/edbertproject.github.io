@@ -70,8 +70,11 @@
     <header class="bg-images1">
         <div class="container text-center text-white">
             <img class="rounded-circle mb-4" src="images/mono.jpg" alt="Profile">
-            <h1>Edbert Andoyo</h1>
-            <h4>Web Developer | Student</h4>
+            <div id="typed-strings">
+                <p>Hello, My name Edbert Andoyo</p>
+                <p>I'm a <strong>Web Developer</strong></p>
+            </div>
+            <h1 class="typed"></h1>
         </div>
     </header>
     <!-- End of jumbotron -->
@@ -308,7 +311,22 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
     </script>
-    <script src="bootstrap/bootstrap.min.js">
+    <script src="bootstrap/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.9"></script>
+    <script>
+        var typed = new Typed('.typed', {
+            stringsElement: '#typed-strings',
+            typeSpeed: 100,
+            startDelay: 1000,
+            backSpeed: 50,
+            backDelay: 1000,
+            loop: true,
+            loopCount: Infinity,
+            showCursor: false,
+            fadeOut: true,
+            fadeOutClass: 'typed-fade-out',
+            fadeOutDelay: 500,
+        });
     </script>
 </body>
 
