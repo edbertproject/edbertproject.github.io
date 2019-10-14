@@ -1,222 +1,668 @@
 // variables
-$bg-color: #f2f2f2;
-$primary : aqua;
-$mobileWidth : 767px;
-$wideWidth : $mobileWidth+1;
+$bg-color: rgb(248, 248, 248);
+$primary: aqua;
+$primary-dark: darken($primary, 10%);
+$primary-darken: darken($primary, 30%);
+$mobileWidth: 767px;
+$wideWidth: $mobileWidth + 1;
 
 @mixin blue-underline {
-    border-top: 2px ridge aqua;
-    width: 225px;
-    margin: 1rem auto 2rem;
+	border-top: 2px ridge $primary;
+	margin: 1rem auto 2rem;
+
+	@media screen and (max-width: $mobileWidth) {
+		width: 35vw;
+	}
+
+	@media screen and (min-width: $wideWidth) {
+		width: 20vw;
+	}
 }
 
 html {
-    scroll-behavior: smooth;
+	scroll-behavior: smooth;
 
-    body {
-        background-color: $bg-color;
-        width: 100%;
-        font-family: 'PT Sans',
-            sans-serif;
-    }
+	body {
+		background-color: $bg-color;
+		width: 100%;
+		height: 100%;
+		font-family: "PT Sans", sans-serif;
+	}
 }
 
 .navbar {
+	.container {
+		a {
+			font-size: 20px;
+		}
+	}
 
-    .container {
-        a {
-            font-size: 20px;
-        }
-    }
+	.navbar-brand {
+		color: $primary;
+		border-color: $primary !important;
+		font-family: "Major Mono Display", monospace;
+	}
 
-    .navbar-brand {
-        color: $primary;
-        border-color: $primary !important;
-        font-family: 'Major Mono Display',
-            monospace;
-    }
+	i {
+		font-size: 40px;
+		color: $primary;
+	}
 
-    i {
-        font-size: 40px;
-        color: aqua;
-    }
+	.nav-link.active,
+	.nav-link:hover {
+		background-color: $primary-dark;
+	}
 
-    .nav-link.active,
-    .nav-link:hover {
-        background-color: $primary;
-    }
+	@media screen and (max-width: $mobileWidth) {
+		li a {
+			margin-top: 4px;
+		}
+	}
 
-    @media screen and (max-width : $mobileWidth) {
-        li a {
-            margin-top: 4px;
-        }
-    }
-
-    @media screen and (min-width : $wideWidth) {
-        li a {
-            margin: 0 4px;
-            padding: initial 10px;
-        }
-    }
-
+	@media screen and (min-width: $wideWidth) {
+		li a {
+			margin: 0 4px;
+			padding: initial 10px;
+		}
+	}
 }
 
 .bg-images1 {
-    background: url("images/jumbotron.jpg") center top no-repeat fixed;
-    background-size: cover;
-    height: 550px;
-    padding: 60px 0 0 0;
-    position: relative;
+	background: url("images/jumbotron.jpg") center top no-repeat fixed;
+	background-size: cover;
+	height: 600px;
+	padding: 60px 0 0 0;
+	position: relative;
 
-    &::before {
-        content: '';
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: -40px;
-        bottom: 0;
-    }
+	&::before {
+		content: "";
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: -40px;
+		bottom: 0;
+	}
 
-    @media screen and (max-width : $mobileWidth) {
-        box-shadow: inset 0 -200px 800px 10px rgba(0, 0, 0, 0.712);
-    }
+	@media screen and (max-width: $mobileWidth) {
+		box-shadow: inset 0 -200px 800px 10px rgba(0, 0, 0, 0.712);
+	}
 
-    @media screen and (min-width : $wideWidth) {
-        box-shadow: inset 0 -200px 800px 20px rgba(0, 0, 0, 0.712);
-    }
+	@media screen and (min-width: $wideWidth) {
+		box-shadow: inset 0 -200px 800px 20px rgba(0, 0, 0, 0.712);
+	}
 }
 
 header {
-    position: relative;
-    z-index: 1;
-    min-height: 500px;
+	position: relative;
+	z-index: 1;
+	min-height: 500px;
 
-    h1 {
-        font-weight: lighter;
-        text-transform: uppercase;
-    }
+	h1 {
+		font-weight: lighter;
+		text-transform: uppercase;
+	}
 
-    @media screen and (max-width : $mobileWidth) {
-        .rounded-circle {
-            width: 150px;
-            border: 2px solid aqua;
-        }
+	@media screen and (max-width: $mobileWidth) {
+		.rounded-circle {
+			width: 150px;
+			border: 2px solid $primary;
+		}
 
-        h1 {
-            font-size: 50px;
-            letter-spacing: 10px;
-            margin-top: 0px;
-        }
+		h1 {
+			font-size: 50px;
+			letter-spacing: 10px;
+			margin-top: 0px;
+		}
 
-        h4 {
-            font-size: 25px;
-            font-weight: 400;
-            letter-spacing: 2px;
-        }
-    }
+		.font-control {
+			font-size: 40px;
+		}
+	}
 
-    @media screen and (min-width : $wideWidth) {
-        .rounded-circle {
-            width: 180px;
-            border: 2px solid aqua;
-        }
+	@media screen and (min-width: $wideWidth) {
+		.rounded-circle {
+			width: 180px;
+			border: 2px solid $primary;
+		}
 
-        h1 {
-            font-size: 65px;
-            letter-spacing: 10px;
-            margin-top: 0px;
-        }
+		h1 {
+			font-size: 65px;
+			letter-spacing: 10px;
+			margin-top: 0px;
+		}
 
-        h4 {
-            font-size: 30px;
-            font-weight: 100;
-            letter-spacing: 5px;
-        }
-    }
+		.font-control {
+			margin-top: 1.5rem;
+		}
+	}
 }
 
 .blue {
-    @include blue-underline;
+	@include blue-underline;
 }
 
 .skill {
-    .container {
-        position: relative;
-        margin-top: -130px;
-        border-radius: 20px;
-        z-index: 2;
-    }
+	.container {
+		position: relative;
+		margin-top: -130px;
+		border-radius: 20px;
+		padding: 2em 4em !important;
+		z-index: 2;
 
-    object {
-        height: 80px;
-    }
+		@media screen and (max-width: $mobileWidth) {
+			padding: 2em 2em !important;
+		}
+	}
+
+	object {
+		height: 70px;
+
+		@media screen and (max-width: $mobileWidth) {
+			height: 60px;
+		}
+	}
+
+	.title {
+		font-weight: 600;
+		color: rgb(24, 24, 24);
+		letter-spacing: 1px;
+
+		@media screen and (max-width: $mobileWidth) {
+			font-size: 20px;
+		}
+	}
+
+	.subtitle {
+		color: rgb(90, 90, 90);
+
+		@media screen and (max-width: $mobileWidth) {
+			font-size: 15px !important;
+		}
+	}
 }
 
 .about {
-    margin-top: 50px;
-    padding: 72px 0;
+	margin-top: 50px;
+
+	p {
+		line-height: 1.8;
+		letter-spacing: 1px;
+	}
+
+	@media screen and (max-width: $mobileWidth) {
+		padding: 72px 0 0;
+	}
+
+	@media screen and (min-width: $wideWidth) {
+		padding: 72px 0 0;
+	}
 }
 
-.contact {
-    padding: 72px 5%;
+.resume {
+	position: relative;
+	z-index: 0;
+	@media screen and (max-width: $mobileWidth) {
+		padding: 72px 1.5em;
+	}
 
-    i {
-        font-size: 24px;
-    }
+	@media screen and (min-width: $wideWidth) {
+		padding: 72px 10em;
+	}
 
-    .social-media i {
-        font-size: 50px;
-    }
+	&:before {
+		top: 72px;
+		bottom: 72px;
+		position: absolute;
+		content: " ";
+		width: 2px;
+		background-color: $primary-dark;
 
-    .form-border {
-        border: 2px solid aqua;
-        border-radius: 10px;
-        padding: 30px;
-    }
+		@media screen and (max-width: $mobileWidth) {
+			right: 10%;
+		}
+
+		@media screen and (min-width: $wideWidth) {
+			left: 50%;
+			margin-left: 0px;
+		}
+	}
+
+	.title {
+		width: 100%;
+		padding: 0;
+		margin: 0;
+		position: relative;
+
+		@media screen and (max-width: $mobileWidth) {
+			text-align: right;
+		}
+
+		@media screen and (min-width: $wideWidth) {
+			text-align: center;
+		}
+
+		.wrap {
+			background-color: #343a40;
+			border-radius: 0.4em;
+			border: 3px solid $primary-dark;
+			display: inline-block;
+			padding: 0.5em 1em;
+			justify-content: center;
+			align-content: center;
+
+			.title-text {
+				color: whitesmoke;
+				font-size: 20px;
+				font-weight: 600;
+				letter-spacing: 5px;
+				text-transform: uppercase;
+				margin: 0;
+
+				@media screen and (max-width: $mobileWidth) {
+					font-size: 16px;
+				}
+			}
+		}
+	}
+
+	.box {
+		display: flex;
+		flex-direction: row;
+		position: relative;
+		padding: 0;
+		margin: 0;
+
+		.no-opacity {
+			opacity: 0;
+		}
+
+		.left {
+			flex: 1;
+			padding: 1.5em 0;
+			padding-right: 4em;
+			margin: 0;
+			min-height: 10em;
+			text-align: right;
+
+			@media screen and (max-width: $mobileWidth) {
+				opacity: 1;
+				padding-right: 3em;
+			}
+
+			.subtitle {
+				padding: 0;
+				margin: 0;
+				font-size: 30px;
+				text-transform: capitalize;
+				letter-spacing: 3px;
+				margin-bottom: 15px;
+				font-weight: 800;
+				color: whitesmoke;
+
+				@media screen and (max-width: $mobileWidth) {
+					font-size: 26px;
+				}
+			}
+
+			.description {
+				padding: 0;
+				margin: 0;
+				margin-bottom: 15px;
+				text-transform: capitalize;
+				color: #adadad;
+				letter-spacing: 2px;
+				font-size: 16px;
+				font-weight: 500;
+
+				@media screen and (max-width: $mobileWidth) {
+					font-size: 14px;
+				}
+			}
+
+			.sub-description {
+				padding: 0;
+				margin: 0;
+				letter-spacing: 1px;
+				text-transform: capitalize;
+				font-weight: 400;
+				line-height: 1.7;
+				color: #e4e4e4;
+
+				@media screen and (max-width: $mobileWidth) {
+					font-size: 16px;
+				}
+			}
+		}
+
+		.right {
+			flex: 1;
+			min-height: 10em;
+			padding: 1.5em 0;
+			padding-left: 4em;
+			margin: 0;
+
+			@media screen and (max-width: $mobileWidth) {
+				display: none;
+			}
+
+			@media screen and (min-width: $wideWidth) {
+				display: initial;
+			}
+
+			.subtitle {
+				padding: 0;
+				margin: 0;
+				font-size: 30px;
+				text-transform: capitalize;
+				letter-spacing: 3px;
+				margin-bottom: 15px;
+				font-weight: 800;
+				color: whitesmoke;
+			}
+
+			.description {
+				padding: 0;
+				margin: 0;
+				margin-bottom: 15px;
+				text-transform: capitalize;
+				color: #adadad;
+				letter-spacing: 2px;
+				font-size: 16px;
+			}
+
+			.sub-description {
+				padding: 0;
+				margin: 0;
+				letter-spacing: 1px;
+				text-transform: capitalize;
+				font-weight: 400;
+				line-height: 1.7;
+				color: #e4e4e4;
+			}
+		}
+
+		.circle {
+			position: absolute;
+			height: 3em;
+			width: 3em;
+			border-radius: 50%;
+			border: 3px solid $primary-dark;
+			background-color: #343a40;
+			z-index: 5;
+			top: (10em/2)-1.5em;
+
+			@media screen and (max-width: $mobileWidth) {
+				right: -3%;
+			}
+
+			@media screen and (min-width: $wideWidth) {
+				left: 47.8%;
+			}
+		}
+	}
 }
 
 .projects {
-    padding: 72px 0 60px;
+	padding: 72px 0 0;
+	margin: 0;
+	background-color: rgb(56, 56, 56);
 
-    p {
-        font-weight: 300;
-        font-size: 20px;
-    }
+	.row {
+		flex-direction: row;
+	}
 
-    .html-5,
-    .css-3 {
-        width: 40px;
-        margin: 0 5px;
-    }
+	.row-reverse {
+		flex-direction: row-reverse;
+	}
 
-    .b-4 {
-        width: 48px;
-        margin: 0 5px;
-    }
+	.box {
+		display: flex;
+		margin: 0;
+		padding: 0;
 
-    .card {
-        border-radius: 10px;
-    }
+		@media screen and (max-width: $mobileWidth) {
+			display: block;
+		}
 
-    img {
-        border-radius: 10px 10px 0 0;
-    }
+		.left {
+			flex: 1;
+			position: relative;
+			max-height: 25em;
+			background-color: $primary-dark;
 
-    .fa-plus-circle {
-        color: green;
-    }
+			img {
+				width: 100%;
+				height: auto;
+			}
+		}
+
+		.mobile {
+			background-image: url(./images/template.png);
+			background-position: center;
+			background-size: cover;
+			background-repeat: no-repeat;
+		}
+
+		.web {
+			background-image: url(./images/template-web.png);
+			background-position: center;
+			background-size: cover;
+			background-repeat: no-repeat;
+		}
+
+		.right {
+			flex: 1;
+			background-color: rgb(56, 56, 56);
+
+			.card-project {
+				padding: 3em;
+				background-color: transparent;
+
+				@media screen and (max-width: $mobileWidth) {
+					padding: 2em;
+				}
+
+				.subtitle {
+					color: $primary-dark;
+					font-weight: 600;
+					padding: 0;
+					margin: 0;
+					font-size: 23px;
+					letter-spacing: 1px;
+
+					@media screen and (max-width: $mobileWidth) {
+						font-size: 20px;
+					}
+				}
+
+				.title {
+					color: whitesmoke;
+					text-transform: uppercase;
+					letter-spacing: 1px;
+					margin: 0.2em 0 0.4em;
+					padding: 0;
+					font-size: 36px;
+
+					@media screen and (max-width: $mobileWidth) {
+						font-size: 32px;
+					}
+				}
+
+				.description {
+					color: #e4e4e4;
+					margin: 0;
+					padding: 0;
+					line-height: 1.7;
+					font-size: 18px;
+
+					@media screen and (max-width: $mobileWidth) {
+						font-size: 16px;
+					}
+				}
+
+				.tag-title {
+					color: gray;
+					margin: 0.8em 0 0;
+					padding: 0;
+					letter-spacing: 1px;
+
+					@media screen and (max-width: $mobileWidth) {
+						font-size: 15px;
+					}
+				}
+
+				.tag-wrap {
+					padding: 0;
+					margin: 0;
+					.tag {
+						display: inline;
+						padding: 0;
+						margin: 0 0.3em;
+						color: gray;
+						letter-spacing: 1px;
+						text-decoration: underline;
+
+						@media screen and (max-width: $mobileWidth) {
+							font-size: 15px;
+						}
+					}
+				}
+
+				.date {
+					margin: 0.8em 0 0;
+					padding: 0;
+					text-align: right;
+
+					i {
+						display: inline;
+						font-size: 15px;
+						color: #adadad;
+					}
+
+					p {
+						margin-left: 0.2em;
+						display: inline;
+						font-size: 15px;
+						color: #adadad;
+						letter-spacing: 1px;
+					}
+				}
+			}
+		}
+	}
+}
+
+.contact {
+	padding: 72px 5%;
+
+	@media screen and (max-width: $mobileWidth) {
+		padding: 72px 1em;
+	}
+
+	.title {
+		letter-spacing: 5px;
+		text-transform: uppercase;
+		font-size: 2.5em;
+
+		@media screen and (max-width: $mobileWidth) {
+			font-size: 35px;
+		}
+	}
+
+	.description {
+		color: rgb(230, 230, 230);
+		line-height: 2;
+		padding: 1.5em 0;
+
+		@media screen and (max-width: $mobileWidth) {
+			font-size: 15px;
+			padding: 1em 0;
+		}
+	}
+
+	.btn-contact {
+		padding: 0.8em 2em;
+		margin-bottom: 1.5em;
+		background-color: transparent;
+		border-radius: 5px;
+		color: whitesmoke;
+		font-weight: 800;
+		text-transform: uppercase;
+		letter-spacing: 2px;
+		border: 2px solid whitesmoke;
+		transition-duration: 0.5s;
+
+		@media screen and (max-width: $mobileWidth) {
+			font-size: 14px;
+		}
+
+		&:hover {
+			background-color: $primary-dark;
+			color: black;
+			border: 2px solid $primary-dark;
+		}
+	}
+
+	.subtitle {
+		margin-top: 1em;
+		letter-spacing: 3px;
+		text-transform: capitalize;
+		font-weight: lighter;
+
+		@media screen and (max-width: $mobileWidth) {
+			font-size: 20px;
+		}
+	}
+
+	.sosial-media {
+		margin-top: 2em;
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-content: center;
+
+		.wrap {
+			width: 3.6em;
+			height: 3.6em;
+			line-height: 4.2em;
+			margin: 0 1em;
+			border-radius: 50%;
+			border: 2px solid white;
+			transition-duration: 0.5s;
+			text-align: center;
+
+			&:hover {
+				background-color: $primary-dark;
+			}
+
+			i {
+				font-size: 2em;
+				color: white;
+				margin: 0;
+				padding: 0;
+			}
+
+			@media screen and (max-width: $mobileWidth) {
+				line-height: 4.1em;
+
+				i {
+					font-size: 1.8em;
+				}
+			}
+		}
+	}
 }
 
 .skill,
 .about,
 .projects {
-    h1 {
-        letter-spacing: 3px;
-        font-weight: 100;
-        text-transform: uppercase;
-    }
+	h1 {
+		letter-spacing: 3px;
+		font-weight: 100;
+		text-transform: uppercase;
+	}
 }
 
 footer {
-    background-color: aqua;
+	background-color: $primary-dark;
 }
